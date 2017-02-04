@@ -65,22 +65,86 @@
 <div id="container">
 	<?php if(have_posts()) : ?><?php while(have_posts()) : the_post(); ?>
 
-	<div class="post">
+	<div class="post" id="post-<?php the_ID();?>">
 
-		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+		<h2><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 
 		<div class="entry">
 
 			<?php the_content(); ?>
-		http://blog.wpjam.com/m/wp-theme-lesson-5c-postmetadata/
+						<p class="postmetadata">
+<?php _e('Filed under&#58;'); ?> <?php the_category(', ') ?> <?php _e('by'); ?> <?php  the_author(); ?><br />
+<?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?> <?php edit_post_link('Edit', ' &#124; ', ''); ?>
+				</p>
 		</div>
 	</div>
 	<?php endwhile; ?>
-
+	
+	<div class="navigation">
+		<?php posts_nav_link(); ?>
+	</div>
+	
+	<?php else : ?>
+	
+		<div class="post">
+		<h2><?php _e('Not Found');?></h2>
+		</div>
+		
 	<?php endif; ?>
 
 </div>
 
+<div class="sidebar">
+
+<ul>
+
+<?php if(function_exists('dynamic_sidebar') && dynamic_sidebar()) : else : ?>
+
+	<li id="search">
+		<?php include(TEMPLATEPATH . '/searchform.php'); ?>
+	</li>
+	
+	<li id="calendar"><h2><?php _e('Calendar'); ?></h2>
+		<?php get_calendar(); ?>
+	</li>
+	
+	
+	<?php wp_list_pages("depth=3&title_li=<h2>Pages</h2>"); ?>
+	
+	<li><h2><?php _e('Categories'); ?></h2>
+		<ul>
+			<?php wp_list_cats('sort_column=name&optioncount=1&hierarchical=0'); ?>
+		</ul>
+	</li>
+	
+	<li><h2><?php _e('Archives'); ?></h2>
+		<ul>
+			<?php wp_get_archives('type=monthly'); ?>
+		</ul>
+		
+	</li>
+	
+	<?php wp_list_bookmarks();?>
+	
+	<li><h2><?php _e('Meta'); ?></h2>
+		<ul>
+			<?php wp_register(); ?>
+			<li><?php wp_loginout(); ?></li>
+			<?php wp_meta(); ?>
+		</ul>
+	</li>
+
+	
+<?php endif; ?>
+</ul>
+
+</div>
+
+<div id="footer">
+<p>
+Copyright © 2007 <?php bloginfo(’name’); ?>
+</p>
+</div>
 
 </body>
 
