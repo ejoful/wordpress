@@ -36,6 +36,17 @@ get_header(); ?>
 
 				<?php twentyeleven_content_nav( 'nav-above' ); ?>
 
+				<?php 
+// 				$cat = get_query_var('cat');
+// 				$PozCat = get_category ($cat);
+// 				print_r($cat);
+// 				print_r($PozCat);
+// 				die();
+    				$category = get_the_category();
+//     				print_r($category);die;
+    				query_posts('cat='.$category[0]->term_id.'&showposts=1&orderby=post_date&order=ASC'); 
+    				
+    				?>
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 
