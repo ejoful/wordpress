@@ -1,20 +1,82 @@
-<?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * For example, it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Twelve
- * @since Twenty Twelve 1.0
- */
-
-get_header(); ?>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" /> 
+<title>W3Cschool - 学技术查资料，从w3cschool开始!</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="w3cschool,w3cschool在线教程,技术文档,编程入门教程,w3school,W3C,HTML,HTML5,CSS,Javascript,jQuery,Bootstrap,PHP,Java,Sql" />
+<meta name="description" content="w3cschool是一个专业的编程入门学习及技术文档查询网站，提供包括HTML,CSS,Javascript,jQuery,C,PHP,Java,Python,Sql,Mysql等编程语言和开源技术的在线教程及使用手册，是类国外w3schools的W3C学习社区及菜鸟编程平台。" />
+<link rel="stylesheet" type="text/css" href="//www.w3cschool.cn/statics/css/w5.css" />
+<link rel="stylesheet" href="//www.w3cschool.cn/statics/css/lrtk.css" type="text/css" />
+<meta name="google-site-verification" content="tnYGDmBAeTYS_84U_dz6Z4rWznCb0wFD4XxtBRNM9qg" />
+<meta name="msvalidate.01" content="DF7F554D393F4224E25D986A1CDA3066" />
+<link rel="shortcut icon" href="//www.w3cschool.cn/statics/images/favicon.ico" /> 
+</head>
+<body id="homefirst" class="index-body">
+<!--引入头部-->
+<!--header start-->  
+<div id="header_item">
+<div id="header_index">
+<div id="header-l">
+<a href="/" title="w3cschool" class="logo"><img src="http://statics.w3cschool.cn/images/w3c/logo.png" alt="W3Cschool" /></a>
+<ul class="header-menu">
+<li><a href="/html/" title="编程入门教程" >HTML</a></li>
+<li><a href="http://www.w3cschool.cn/manual" title="开源技术文档" >开源文档</a></li>
+<li><a href="http://www.w3cschool.cn/examples" title="编程实例" >编程实例</a></li>
+<li><a href="http://www.w3cschool.cn/dict/" title="速查词典">速查词典</a></li>
+<li><a href="http://www.w3cschool.cn/topic/" title="问答" >问答</a></li>
+<li class="dropdown"><a href="#" class="dropbtn">更多 <i class="down-icon1 angle-down-icon"></i></a>
+<div class="dropdown-content">
+<a href="http://www.w3cschool.cn/codecamp/" title="编程实战训练">编程实战训练</a>
+<a href="http://www.w3cschool.cn/codedemo" title="代码实例">代码实例</a>
+<a href="http://www.w3cschool.cn/position/positionList" title="职位进阶">职位进阶</a>
+<a href="http://www.w3cschool.cn/popularUser" title="排行榜">排行榜</a>
+</div>
+</li>
+</ul>
+</div>
+<div id="header-r">
+<div id="searchui" class="searchbox">
+<form action="/search" target="_self">
+<input type="text" name="w" class="box" id="searched_content" placeholder="输入关键字搜索..."/>
+<button type="submit" class="button"/></button>
+</form>
+</div>
+<div class="sig-box" >
+<a href="/register?refer=/">注册</a><!-- href="/register?refer=/" --> | 
+<a href="/login?refer=/">登录</a>
+</div>
+</div>
+</div>
+</div>
+<div id="navfirst_item">
+<div id="navfirst">
+<ul id="menu">
+<li><a href="/" title="w3cschool首页"><i class="home-icon img-icon"></i>首页</a></li>
+<li><a href="/html/" title="编程入门">HTML</a></li>
+<li><a href="http://www.w3cschool.cn/#blockweb" title="前端开发">前端开发</a></li>
+<li><a href="http://www.w3cschool.cn/#blockcserver" title="服务器端开发">服务器端</a></li>
+<li><a href="http://www.w3cschool.cn/#blocksql" title="数据库开发">数据库</a></li>
+<li><a href="http://www.w3cschool.cn/#blockmobile" title="移动端开发">移动端</a></li>
+<li><a href="http://www.w3cschool.cn/#blockoperations" title="服务器运维">服务器运维</a></li>
+<li><a href="http://www.w3cschool.cn/#blocktools" title="开发工具">开发工具</a></li>
+<li><a href="http://www.w3cschool.cn/#blockcxml" title="XML">XML</a></li>
+<li><a href="http://www.w3cschool.cn/#block11" title="实例/案例">实例/案例</a></li>
+<li><a href="http://www.w3cschool.cn/#blockwebsite" title="网站建设">网站建设</a></li>
+<li><a href="http://www.w3cschool.cn/#blockstuget" title="学习资源">学习资源</a></li>
+<li><a href="http://123.w3cschool.cn/webtools" target="_blank" title="W3Cschool在线工具集合">在线工具</a></li>
+<li><a href="http://123.w3cschool.cn" target="_blank" title="W3Cschool极客导航">极客导航</a></li>
+<!--<li><a href="http://www.w3cschool.cn/tutorial" title="编程入门教程">更多...</a></li>-->
+</ul>
+</div>
+</div>
+<script>
+var apppath = '/';
+var domain  = 'http://www.w3cschool.cn';
+</script>
+<!--header end-->
 <div id="search-banner" class="search-banner2">
 <div class="index-wrapper search-wrapper">
 <div class="first-w3">
@@ -849,4 +911,137 @@ get_header(); ?>
 </div>
 </div>
 </div>
-<?php get_footer(); ?>
+<!--引入底部-->
+<!--footer start-->
+<div id="footer_item">
+<div id="footer">
+<div class="footer-box">
+<div class="footer-title">网站相关</div>
+<div class="footer-items">
+<a href="http://www.w3cschool.cn/about/about.html">关于我们</a>
+<a href="http://www.w3cschool.cn/about/join.html">加入我们</a>
+<a href="http://www.w3cschool.cn/about/disclaimer.html">免责声明</a>
+<a href="http://www.w3cschool.cn/sitemap/">网站地图</a>
+</div>
+</div>
+<div class="footer-box">
+<div class="footer-title">内容专区</div>
+<div class="footer-items">
+<a href="http://www.w3cschool.cn/tutorial" title="编程入门教程">编程入门教程</a>
+<a href="http://www.w3cschool.cn/manual" title="技术文档参考手册">开源文档</a>
+<a href="http://www.w3cschool.cn/examples" title="在线实例">在线实例</a>
+<a href="http://www.w3cschool.cn/archives/" title="文章存档">文章存档</a>
+</div>
+</div>
+<div class="footer-box">
+<div class="footer-title">常用链接</div>
+<div class="footer-items">
+<a href="http://www.w3cschool.cn/tif2eq/index.html" target="_blank" title="使用帮助">使用帮助</a>
+<a href="http://123.w3cschool.cn" title="技术学习极客导航">极客导航</a>
+<a href="http://wiki.w3cschool.cn" target="_blank" title="编程百科">编程百科</a>
+<a href="http://m.w3cschool.cn/" target="_blank" title="w3cschool手机版">w3cschool手机版</a>
+</div>
+</div>
+<div class="footer-box">
+<div class="footer-title">联系我们</div>
+<div class="footer-items">
+<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=d308d977f1e630212a6c5412057c1784314d5ce64a287e02b4e7eabeb28b1f0d" ref="nofollow">官方QQ群：496712525</a>
+<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=3265790599&amp;site=qq&amp;menu=yes" ref="nofollow">商务合作QQ：3265790599</a>
+<a target="_blank" href="http://www.w3cschool.cn/links" title="友情链接">友情链接QQ：3532917531</a>
+</div>
+</div>
+<div class="footer-box">
+<div class="tcode"><img src="http://statics.w3cschool.cn/images/w3c/w3cschool.png" alt="微信订阅号" width="100" height="100"></div>
+<p class="tcode-txt">微信号：w3cschoolcn</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>Copyright&copy;2016 亿动科技 <a href="http://www.w3cschool.cn" title="w3cschool">w3cschool.cn </a> All Rights Reserved. 闽ICP备15016281号-3</p>
+</div>
+</div>
+<div class="bottom-tools">
+<a id="scrollUp" href="javascript:;" title="飞回顶部"></a>
+<div class="qr-tool">二维码</div>
+<a id="feedback" title="建议反馈" href="javascript:;" data-module="page" onclick="showDialogBox(this)">建议反馈</a>
+<div class="qr-img"><img src="http://statics.w3cschool.cn/images/w3c/w3cschool.jpg" alt="二维码"></div>
+</div>
+<div class="feedback-Box" style="display: none;">
+<div class="feedback-Box-content" style="width: 800px;">
+<div class="feedback-Box-top">
+<span class="feedback-Box-title">意见反馈</span>
+<span onclick="closeDialogBox(this)" class="feedback-Box-close">X</span>
+</div>
+<ul>
+<li class="feedback-box" >
+<div id="feedbackRadio" type="radio" name="feedbackType" data-value="0" style=""> 意见反馈：</div>
+<textarea  name="reportInfo" id="elmaaa" class="feedback-text" rows="15" placeholder="请留下您宝贵的意见反馈吧。" style="width: 700px;height:200px;overflow:auto;" ></textarea>
+<p>联系方式：</p>
+<input type="text" placeholder="留个联系方式呗..." name="reportAddress" class="radio-text" id="reportAddress" style="height: 30px;width: 200px;">
+</li>
+</ul>
+<button class="search-s" onclick="dialogSubmit(this)" id="reportSubmit">提交</button>
+</div>
+</div>
+<!--footer end-->
+ 
+<div class="widget-body" data-type="index">                                                
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+<script src="//www.w3cschool.cn/statics/js/lrtk.js" type="text/javascript"></script>
+<script src="//www.w3cschool.cn/statics/js/commonfooter.js" type="text/javascript"></script>
+<script type="text/javascript">
+jQuery(function() {
+$("#menu li a").click(function(){
+var hr = $(this).attr("href");
+var anh = hr.split('#');
+$(".sidebar-title").css('color','#000');
+$('#'+anh[1]).css('color','#AE4141');
+});
+$.ajaxdo({
+type : "POST",
+url  : "/index/checkLoginByIndex",
+dataType : "json", 
+data : {},
+success : function(data){
+var html = '';
+var info = data.data;
+var check = $(".quick-item");
+if(typeof check != 'undefined'){
+if(data.statusCode == '200' && typeof info.username != 'undefined'){
+html += '<div class="personino-item"><div class="personino-box"><div class="user-box"><div class="user-avatar">'
++'<img src="http://img.w3cschool.cn/attachments/avatar/'+info.avatar+'" alt="'+info.nickname+'"></div>'
++'<div class="user-info"><a href="/u/'+info.uid+'" target="_blank">'+info.nickname+'</a>'
++'<span>学号：'+info.uid+'</span></div></div><div class="user-desc"><span>经验值：'+info.exp+'</span>'
++'<span>当前等级：LV'+info.level+'</span></div></div><div class="quicklogin quick-box">'
++'<a href="/my"><i class="pop-sns icons-user"></i>个人中心</a>'
++'</div>'
++'<div class="record-box"><h3>我最近学习的教程：</h3><ul>';
+var projectinfo = info.projectinfo;
+for (var i = 0; i < projectinfo.length ; i++) {
+html += '<li><a href="/'+projectinfo[i]['ename']+'" title="'+projectinfo[i]['bookname']+'">'+projectinfo[i]['bookname']+'</a></li>';
+}
+html += '</ul></div></div>';
+$('.quick-item').remove();
+$('#sidebar').prepend(html);
+}
+}
+}
+});
+$(function(){
+m_over();
+m_out();
+});
+function m_over(){    
+$(".slide-main").on("mouseover",function(){
+$(".slide-next-btn-box").attr("style","display:block;");
+});
+}
+function m_out(){       
+$(".slide-main").on("mouseout",function(){
+$(".slide-next-btn-box").attr("style","display:none;");
+});    
+}
+});
+</script>
+</body>
+</html>
