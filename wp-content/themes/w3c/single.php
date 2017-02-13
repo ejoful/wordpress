@@ -1,4 +1,36 @@
 <?php
+if ( is_single() ) :
+	global $post;
+	$categories = get_the_category();
+	foreach ($categories as $category) :
+//		print_r($category);
+		?>
+		<li class="widget widget_recent_entries" id="<?php $category->term_id;?>-posts">
+			<h2 class="widgettitle"><?php echo $category->name; ?></h2>
+			<ul>
+				<?php
+				$posts = get_posts('category='. $category->term_id);
+				echo "<pre>";
+				print_r($posts);
+				echo "<pre>";
+				die();
+				foreach($posts as $post) :
+					?>
+					<li>
+						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</li>
+		<?php
+	endforeach; endif ; ?>
+<?php
+/*
+end show current category articles
+*/
+?>
+
+<?php
 /**
  * The Template for displaying all single posts
  *
@@ -9,25 +41,543 @@
 
 get_header(); ?>
 
-	<div id="primary" class="site-content">
-		<div id="content" role="main">
+	<div id="wrapper" class="project-wrapper">
+		<div id="navsecond">
+			<div id="course">
+				<h2>目录</h2>
+			</div>
+			<div class="sidebar-content">
+				<div class="sidebar-tree">
+					<div class="sidebar-tree-content">
+						<div class="dd" id="nestable_handbook" data-tid="3" data-id="handbook">
+							<ol class="dd-list" style="margin: 0 6px 10px;padding: 0;">
+								<li class="dd-item  " data-id="241bxf21" ismenu="1">
+									<div class="dd-content folder-open">
+										<h2 class="menu-title"><span class="leftth" title="HTML 教程">
+HTML 教程</span>
+										</h2></div>
+									<ol class="dd-list" style="margin: 0;padding: 0;">
+										<li class="dd-item active " data-id="html-tutorial">
+											<div class="dd-content ">
+												<a href="/html/html-tutorial.html" title="HTML 教程导读">HTML 教程导读</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-intro">
+											<div class="dd-content ">
+												<a href="/html/html-intro.html" title="HTML 简介">HTML 简介</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-editors">
+											<div class="dd-content ">
+												<a href="/html/html-editors.html" title="HTML 编辑器的介绍及推荐">HTML 编辑器</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-basic">
+											<div class="dd-content ">
+												<a href="/html/html-basic.html" title="HTML 基础">HTML 基础</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-elements">
+											<div class="dd-content ">
+												<a href="/html/html-elements.html" title="HTML 元素">HTML 元素</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-attributes">
+											<div class="dd-content ">
+												<a href="/html/html-attributes.html" title="HTML 属性">HTML 属性</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-heading">
+											<div class="dd-content ">
+												<a href="/html/html-heading.html" title="HTML 标题">HTML 标题</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-paragraphs">
+											<div class="dd-content ">
+												<a href="/html/html-paragraphs.html" title="HTML 段落">HTML 段落</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-formatting">
+											<div class="dd-content ">
+												<a href="/html/html-formatting.html" title="HTML 文本格式化">HTML 文本格式化</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-links">
+											<div class="dd-content ">
+												<a href="/html/html-links.html" title="HTML 链接">HTML 链接</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-head">
+											<div class="dd-content ">
+												<a href="/html/html-head.html" title="HTML 头部">HTML 头部</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-css">
+											<div class="dd-content ">
+												<a href="/html/html-css.html" title="HTML CSS百科及常用嵌入方式">HTML CSS</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-images">
+											<div class="dd-content ">
+												<a href="/html/html-images.html" title="HTML 图像">HTML 图像</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-tables">
+											<div class="dd-content ">
+												<a href="/html/html-tables.html" title="HTML 表格">HTML 表格</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-lists">
+											<div class="dd-content ">
+												<a href="/html/html-lists.html" title="HTML 列表">HTML 列表</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-blocks">
+											<div class="dd-content ">
+												<a href="/html/html-blocks.html" title="HTML 区块">HTML 区块</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-layouts">
+											<div class="dd-content ">
+												<a href="/html/html-layouts.html" title="HTML 布局">HTML 布局</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-form">
+											<div class="dd-content ">
+												<a href="/html/html-form.html" title="HTML 表单">HTML 表单</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-iframes">
+											<div class="dd-content ">
+												<a href="/html/html-iframes.html" title="HTML 框架">HTML 框架</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-colors">
+											<div class="dd-content ">
+												<a href="/html/html-colors.html" title="HTML 颜色">HTML 颜色</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-colornames">
+											<div class="dd-content ">
+												<a href="/html/html-colornames.html" title="HTML 颜色名">HTML 颜色名</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-colorvalues">
+											<div class="dd-content ">
+												<a href="/html/html-colorvalues.html" title="HTML 颜色值">HTML 颜色值</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-scripts">
+											<div class="dd-content ">
+												<a href="/html/html-scripts.html" title="HTML 脚本">HTML 脚本</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-entities">
+											<div class="dd-content ">
+												<a href="/html/html-entities.html" title="HTML 字符实体">HTML 字符实体</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-url">
+											<div class="dd-content ">
+												<a href="/html/html-url.html" title="HTML URL">HTML URL</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-quicklist">
+											<div class="dd-content ">
+												<a href="/html/html-quicklist.html" title="HTML 速查列表">HTML 速查列表</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-summary">
+											<div class="dd-content ">
+												<a href="/html/html-summary.html" title="HTML 总结">HTML 总结</a>
+											</div>
+										</li>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+									</ol></li>
+								<li class="dd-item  " data-id="9odg1ptd" ismenu="1">
+									<div class="dd-content folder-open">
+										<h2 class="menu-title"><span class="leftth" title="HTML XHTML">
+HTML XHTML</span>
+										</h2></div>
+									<ol class="dd-list" style="margin: 0;padding: 0;">
+										<li class="dd-item  " data-id="html-xhtml">
+											<div class="dd-content ">
+												<a href="/html/html-xhtml.html" title="XHTML 简介">XHTML 简介</a>
+											</div>
+										</li>
 
-				<?php get_template_part( 'content', get_post_format() ); ?>
+									</ol></li>
+								<li class="dd-item  " data-id="1pdjxf21" ismenu="1">
+									<div class="dd-content folder-open">
+										<h2 class="menu-title"><span class="leftth" title="HTML 媒体">
+HTML 媒体</span>
+										</h2></div>
+									<ol class="dd-list" style="margin: 0;padding: 0;">
+										<li class="dd-item  " data-id="html-media">
+											<div class="dd-content ">
+												<a href="/html/html-media.html" title="HTML 媒体(Media)">HTML 媒体(Media)</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-object">
+											<div class="dd-content ">
+												<a href="/html/html-object.html" title="HTML 插件">HTML 插件</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-sounds">
+											<div class="dd-content ">
+												<a href="/html/html-sounds.html" title="HTML 音频(Audio)">HTML 音频(Audio)</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-videos">
+											<div class="dd-content ">
+												<a href="/html/html-videos.html" title="HTML 视频(Videos)播放">HTML 视频(Videos)播放</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-examples">
+											<div class="dd-content ">
+												<a href="/html/html-examples.html" title="HTML 实例">HTML 实例</a>
+											</div>
+										</li>
 
-				<nav class="nav-single">
-					<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentytwelve' ); ?></h3>
-					<span class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'twentytwelve' ) . '</span> %title' ); ?></span>
-					<span class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentytwelve' ) . '</span>' ); ?></span>
-				</nav><!-- .nav-single -->
+									</ol></li>
+								<li class="dd-item  " data-id="y12r1210" ismenu="1">
+									<div class="dd-content folder-open">
+										<h2 class="menu-title"><span class="leftth" title="实例/测验">
+实例/测验</span>
+										</h2></div>
+									<ol class="dd-list" style="margin: 0;padding: 0;">
+										<li class="dd-item  " data-id="html-html_examples">
+											<div class="dd-content ">
+												<a href="/html/html-html_examples.html" title="HTML 实例">HTML 实例</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-html_quiz">
+											<div class="dd-content ">
+												<a href="/html/html-html_quiz.html" title="HTML 测验">HTML 测验</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-codecamp">
+											<div class="dd-content ">
+												<a href="/html/html-codecamp.html" title="HTML 编程实战闯关">HTML 编程实战闯关</a>
+											</div>
+										</li>
 
-				<?php comments_template( '', true ); ?>
+									</ol></li>
+								<li class="dd-item  " data-id="4flh1s7s" ismenu="1">
+									<div class="dd-content folder-open">
+										<h2 class="menu-title"><span class="leftth" title="拓展阅读">
+拓展阅读</span>
+										</h2></div>
+									<ol class="dd-list" style="margin: 0;padding: 0;">
+										<li class="dd-item  " data-id="html-space">
+											<div class="dd-content ">
+												<a href="/html/html-space.html" title="HTML中如何键入空格">HTML中如何键入空格</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-code">
+											<div class="dd-content ">
+												<a href="/html/html-code.html" title="程序员必须知道的HTML常用代码有哪些？">HTML常用代码</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-Label">
+											<div class="dd-content ">
+												<a href="/html/html-Label.html" title="全方位详解HTML常用标签（含视频教程）">HTML常用标签</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-template">
+											<div class="dd-content ">
+												<a href="/html/html-template.html" title="精选多个程序员都想要的免费HTML模板下载">HTML模板下载</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-textbox">
+											<div class="dd-content ">
+												<a href="/html/html-textbox.html" title="HTML文本框参考样式及常见操作技巧大全">HTML文本框样式</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-scrollbar">
+											<div class="dd-content ">
+												<a href="/html/html-scrollbar.html" title="HTML滚动条样式代码及使用技巧">HTML滚动条样式</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-copyright">
+											<div class="dd-content ">
+												<a href="/html/html-copyright.html" title="HTML版权符号写法及美化">HTML版权符号写法</a>
+											</div>
+										</li>
+										<li class="dd-item  " data-id="html-cui11xk2">
+											<div class="dd-content ">
+												<a href="/html/html-cui11xk2.html" title="HTML元素嵌套嵌套错误可能引起的问题">HTML元素嵌套问题</a>
+											</div>
+										</li>
 
-			<?php endwhile; // end of the loop. ?>
+									</ol></li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="pro-mian" class="main-container">
+			<div class="project-body">
+				<div id="tpn" class="content-links">
+					<div class="previous-link">← <a href="/html/241bxf21.html" title="HTML 教程">HTML 教程</a></div>
+					<div class="next-link"><a href="/html/html-intro.html" title="HTML 简介">HTML 简介</a> →</div>
+				</div>
+				<!--广告放置-->
+				<!--内容页横版广告开始-->
+				<div class="content-abox">
+					<script type="text/javascript">
+						/*内容页横版*/
+						var cpro_id = "u2890385";
+					</script>
+					<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+				</div>
+				<!--内容页横版广告结束--><div class="content-bg">
+					<div class="content-head">
+						<div class="content-head-title">
+							<h1 class="content-title">HTML 教程导读</h1>
+							<a class="correction" href="/edit/html/html-tutorial" rel="nofollow"><i class="edit-error-icon"></i>我要纠错</a>
+						</div>
+						<div class="content-group">
+							<span id="content-head-viewcount"><i class="viewcount-icon"></i> 阅读 (185389)</span>
+							<a id="hbstar" href="javascript:;" onclick="isstar()" data-type="star"><i class="star-icon"></i><span>收藏</span></a>
+							<a class="btn-thumbs-up" href="javascript:;" onclick="islike()">
+								<i class="thumbs-up-icon"></i>
+								<span id="likestatus">赞</span>
+								(<span id="likecount">14</span>)
+							</a>
+							<a href="javascript:;" title="分享" class="share-km-a btn btn-sm popup_more bdsharebuttonbox bdshare-button-style2-16" data-cmd="more" data-bd-bind="1486796098362"><i class="share-icon"></i> 分享</a>
+							<a id="newversion" href="javascript:;" onclick="newversion()"><i class="newversion-icon"></i><span>新版预览</span></a>
+						</div>
+					</div>
+					<div class="content-intro view-box">
+						<?php while ( have_posts() ) : the_post(); ?>
+							<?php get_template_part( 'content', 'page' ); ?>
+						<?php endwhile; // end of the loop. ?>
+					</div>
+				</div>
+				<div id="bpn" class="content-links">
+					<div class="previous-link"><?php
+						$prev_post = get_previous_post(true);
+						if (!empty( $prev_post )) {
+							echo "← <a title='".$prev_post->post_title."' href='".get_permalink( $prev_post->ID )."'>".$prev_post->post_title."</a>";
+						}
+						?></div>
+					<div class="next-link"><?php
+						$next_post = get_next_post(true);
+						if (!empty( $next_post )) {
+							echo "<a title='".$next_post->post_title."' href='".get_permalink( $next_post->ID )."'>".$next_post->post_title." →</a>";
+						}
+						?></div>
+				</div>
+			</div>
+		</div>
+		<div id="sidebar">
+			<div id="pro-intro">
+				<div id="course">
+					<h2>当前阅读</h2>
+				</div>
+				<div class="pro-box">
+					<a href="//www.w3cschool.cn/html/" title="HTML教程">
+						<div class="pro-img">
+							<img class="pimgcover" src="/attachments/cover/cover_html.png" width="100" height="100" alt="HTML教程">
+						</div>
+						<div class="pro-info">
+							<h4>HTML教程</h4>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="tools-box">
+				<div id="course">
+					<h2>扩展栏目</h2>
+				</div>
+				<div id="tools">
+					<h5 id="tools_3"><a href="/html/topic" target="_blank" title="html问答讨论区">html问答讨论区</a></h5><h5 id="tools_2"><a href="/html/dict" target="_blank" title="html速查词典">html速查词典</a></h5><h5 id="tools_3"><a href="/html5/" target="_blank" title="HTML5教程">HTML5教程</a></h5>
+					<h5 id="tools_3"><a href="/htmltags/" target="_blank" title="HTML参考手册">HTML参考手册</a></h5>
+					<h5 id="tools_3"><a href="/codecamp/say-hello-to-html-element.html" target="_blank" title="HTML编程入门训练">HTML编程入门训练</a></h5>
+					<h5 id="tools_1"><a href="/webide">开发工具IDE</a></h5>
+					<h5 id="tools_3"><a href="/codecamp/">编程训练营</a></h5>
+				</div>
+			</div>
+			<!--广告放置-->
+			<!--内容页竖版广告开始-->
+			<div class="sidebar-box">
+				<div id="course">
+					<h2>Advertisement</h2>
+				</div>
+				<div class="abox">
+					<script type="text/javascript">
+						/*内容页竖版*/
+						var cpro_id = "u2890388";
+					</script>
+					<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+				</div>
+			</div>
+			<!--内容页竖版广告结束-->
+			<!--分类导航-->
+			<!--siderbar_nav start-->
+			<div class="sidebar-box">
+				<div id="course">
+					<h2>分类导航</h2>
+				</div>
+				<ul class="nav1">
+					<li class="li1">
+						<a href="javascript:;">最新推荐</a>
+						<ul class="nav2">
+							<li class="li2"><a href="//www.w3cschool.cn/freejquery/index.html" title="免费Jquery插件合集">免费Jquery插件合集</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/plk2fi/index.html" title="前端学习资源汇总">前端学习资源汇总</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/wxxcx/index.html" title="微信小程序资源汇总">微信小程序资源汇总</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/smarty/index.html" title="Smarty教程">Smarty教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/kfm2f1/index.html" title="SEO基础知识教程">SEO基础知识教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/wkspring/index.html" title="Spring 教程">Spring 教程</a></li>
+						</ul>
+					</li>
+					<li class="li1">
+						<a href="javascript:;">HTML/CSS</a>
+						<ul class="nav2">
+							<li class="li2"><a href="//www.w3cschool.cn/html/index.html" title="HTML教程">HTML教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/html5/index.html" title="HTML5教程">HTML5教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/css/index.html" title="CSS教程">CSS教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/css3/index.html" title="CSS3教程">CSS3教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/bootstrap/index.html" title="bootstrap教程">bootstrap教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/foundation/index.html" title="Foundation5 教程">Foundation5 教程</a></li>
+						</ul>
+					</li>
+					<li class="li1">
+						<a href="javascript:;">javascript</a>
+						<ul class="nav2">
+							<li class="li2"><a href="//www.w3cschool.cn/javascript/index.html" title="javascript教程">javascript教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/htmldom/index.html" title="HTML DOM教程">HTML DOM教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/jquery/index.html" title="jQuery教程">jQuery教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/angularjs/index.html" title="AngularJS教程">AngularJS教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/react/index.html" title="React 教程">React 教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/jqueryui/index.html" title="jQuery UI教程">jQuery UI教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/jqueryeasyui/index.html" title="jQuery EasyUI教程">jQuery EasyUI教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/nodejs/index.html" title="Node.js教程">Node.js教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/ajax/index.html" title="AJAX教程">AJAX教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/json/index.html" title="JSON教程">JSON教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/highcharts/index.html" title="Highcharts教程">Highcharts教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/googleditu/index.html" title="Google地图教程">Google地图教程</a></li>
+						</ul>
+					</li>
+					<li class="li1">
+						<a href="javascript:;">服务端</a>
+						<ul class="nav2">
+							<li class="li2"><a href="//www.w3cschool.cn/php/index.html" title="PHP教程">PHP教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/python/index.html" title="python基础教程">python基础教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/python3/index.html" title="Python 3教程">Python 3教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/django/index.html" title="Django教程">Django教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/linux/index.html" title="Linux教程">Linux教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/docker/index.html" title="Docker教程">Docker教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/ruby/index.html" title="Ruby教程">Ruby教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/java/index.html" title="Java教程">Java教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/c/index.html" title="C教程">C教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/cpp/index.html" title="C++教程">C++教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/perl/index.html" title="Perl 教程">Perl 教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/servlet/index.html" title="Servlet教程">Servlet教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/jsp/index.html" title="JSP教程">JSP教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/lua/index.html" title="Lua教程">Lua教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/scala/index.html" title="scala">scala</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/go/index.html" title="Go教程">Go教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/shejimoshi/index.html" title="设计模式">设计模式</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/zhengzebiaodashi/index.html" title="正则表达式">正则表达式</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/asp/index.html" title="ASP教程">ASP教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/appml/index.html" title="AppML教程">AppML教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/vbscript/index.html" title="VBScript教程">VBScript教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/wkspring/index.html" title="Spring 教程">Spring 教程</a></li>
+						</ul>
+					</li>
+					<li class="li1">
+						<a href="javascript:;">数据库</a>
+						<ul class="nav2">
+							<li class="li2"><a href="//www.w3cschool.cn/sql/index.html" title="SQL教程">SQL教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/mysql/index.html" title="MySQL教程">MySQL教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/sqlite/index.html" title="SQLite教程">SQLite教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/mongodb/index.html" title="MongoDB教程">MongoDB教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/redis/index.html" title="Redis教程">Redis教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/memcached/index.html" title="Memcached教程">Memcached教程</a></li>
+						</ul>
+					</li>
+					<li class="li1">
+						<a href="javascript:;">移动端</a>
+						<ul class="nav2">
+							<li class="li2"><a href="//www.w3cschool.cn/android/index.html" title="Android教程">Android教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/swift/index.html" title="Swift 教程">Swift 教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/jquerymobile/index.html" title="jQuery Mobile教程">jQuery Mobile教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/ionic/index.html" title="ionic">ionic</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/ios/index.html" title="ios开发手册">ios开发手册</a></li>
+						</ul>
+					</li>
+					<li class="li1">
+						<a href="javascript:;">ASP.NET</a>
+						<ul class="nav2">
+							<li class="li2"><a href="//www.w3cschool.cn/aspnet/index.html" title="ASP.NET教程">ASP.NET教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/csharp/index.html" title="C#教程">C#教程</a></li>
+						</ul>
+					</li>
+					<li class="li1">
+						<a href="javascript:;">Web Services</a>
+						<ul class="nav2">
+							<li class="li2"><a href="//www.w3cschool.cn/webservices/index.html" title="Web Services教程">Web Services教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/wsdl/index.html" title="WSDL教程">WSDL教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/soap/index.html" title="SOAP教程">SOAP教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/rss/index.html" title="RSS教程">RSS教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/rdf/index.html" title="RDF教程">RDF教程</a></li>
+						</ul>
+					</li>
+					<li class="li1">
+						<a href="javascript:;">开发工具</a>
+						<ul class="nav2">
+							<li class="li2"><a href="//www.w3cschool.cn/eclipse/index.html" title="Eclipse教程">Eclipse教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/git/index.html" title="Git教程">Git教程</a></li>
+							<li class="li2"><a href="//www.w3cschool.cn/firebug/index.html" title="Firebug教程">Firebug教程</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<!--siderbar_nav end--></div>
+	</div>
 
-		</div><!-- #content -->
-	</div><!-- #primary -->
+<?php
+/*
+single page?show current category articles
+*/
+?>
+<?php
+if ( is_single() ) :
+	global $post;
+	$categories = get_the_category();
+	foreach ($categories as $category) :
+//		print_r($category);
+		?>
+		<li class="widget widget_recent_entries" id="<?php $category->term_id;?>-posts">
+			<h2 class="widgettitle"><?php echo $category->name; ?></h2>
+			<ul>
+				<?php
+				$posts = get_posts('category='. $category->term_id);
+				echo "<pre>";
+		print_r($posts);
+		echo "<pre>";
+		die();
+				foreach($posts as $post) :
+					?>
+					<li>
+						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</li>
+		<?php
+	endforeach; endif ; ?>
+<?php
+/*
+end show current category articles
+*/
+?>
 
-<?php get_sidebar(); ?>
+
+<?php
+//get_sidebar();
+?>
 <?php get_footer(); ?>

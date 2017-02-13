@@ -50,8 +50,8 @@ JavaScript 被设计为向 HTML 页面增加交互性。
 </form>
 </div>
 <div class="sig-box" >
-<a href="/register?refer=/">注册</a><!-- href="/register?refer=/" --> | 
-<a href="/login?refer=/">登录</a>
+<a href="/register">注册</a><!-- href="/register?refer=/" --> |
+<a href="/login">登录</a>
 </div>
 </div>
 </div>

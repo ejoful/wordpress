@@ -591,3 +591,19 @@ function get_category_tags($args) {
     }
     return $mytag;
 }
+
+/**
+ * 名称：WordPress手动修改文章排列顺序
+ * 作者：露兜
+ * 博客：http://www.ludou.org/
+ * 最后修改：2015年10月21日
+ */
+
+function ludou_orderby( $query ) {
+    if ( (is_home() || is_archive() || is_category()) && $query->is_main_query() ) {
+        $query->set( 'meta_key', 'sort' );
+        $query->set( 'orderby', array('meta_value_num' => 'ASC') );
+    }
+    return $query;
+}
+add_action('pre_get_posts', 'ludou_orderby');
