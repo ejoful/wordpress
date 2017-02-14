@@ -607,3 +607,14 @@ function ludou_orderby( $query ) {
     return $query;
 }
 add_action('pre_get_posts', 'ludou_orderby');
+
+
+function get_category_root_id($cat)
+{
+	$this_category = get_category($cat); // 取得当前分类
+	while($this_category->category_parent) // 若当前分类有上级分类时，循环
+	{
+		$this_category = get_category($this_category->category_parent); // 将当前分类设为上级分类（往上爬）
+	}
+	return $this_category->term_id; // 返回根分类的id号
+}

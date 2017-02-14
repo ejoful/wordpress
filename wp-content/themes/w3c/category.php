@@ -11,7 +11,19 @@
  * @since Twenty Twelve 1.0
  */
 
-get_header(); ?>
+get_header();
+
+
+if(is_single()||is_category())
+{
+    if(get_category_children(get_category_root_id(the_category_ID(false)))!= "" )
+    {
+        echo '<ul>';
+        echo wp_list_categories("child_of=".get_category_root_id(the_category_ID(false)). "&depth=0&hide_empty=0&title_li=&orderby=id&order=ASC");
+        echo '</ul>';
+    }
+}
+?>
 <div id="wrapper" class="project-wrapper">
 <div id="navsecond">
 <div id="course">
