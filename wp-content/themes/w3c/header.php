@@ -59,9 +59,9 @@ JavaScript 被设计为向 HTML 页面增加交互性。
 <div id="navfirst_item">
 <div id="navfirst">
 <ul id="menu">
-<li><a href="http://www.w3cschool.cn" title="w3cschool首页"><i class="home-icon img-icon"></i>首页</a></li>
-<li><a href="http://www.w3cschool.cn/html/" title="HTML教程">HTML</a></li>
-<li><a href="http://www.w3cschool.cn/css/" title="CSS教程">CSS</a></li>
+<li><a href="/" title="w3cschool首页"><i class="home-icon img-icon"></i>首页</a></li>
+<li><a href="/html/" title="HTML教程">HTML</a></li>
+<li><a href="/css/" title="CSS教程">CSS</a></li>
 <li><a href="http://www.w3cschool.cn/javascript/" title="Javascript教程">Javascript</a></li>
 <li><a href="http://www.w3cschool.cn/jquery/" title="Jquery教程">Jquery</a></li>
 <li><a href="http://www.w3cschool.cn/bootstrap/" title="Bootstrap教程">Bootstrap</a></li>

@@ -13,16 +13,54 @@
 
 get_header();
 
+$category = get_the_category();
+//print_r($category);die();
 
-if(is_single()||is_category())
-{
-    if(get_category_children(get_category_root_id(the_category_ID(false)))!= "" )
-    {
-        echo '<ul>';
-        echo wp_list_categories("child_of=".get_category_root_id(the_category_ID(false)). "&depth=0&hide_empty=0&title_li=&orderby=id&order=ASC");
-        echo '</ul>';
+global $cat;
+$cats = get_categories(array(
+    'child_of' => $cat,
+    'parent' => $cat,
+    'hide_empty' => 0
+));
+$cur_category = get_category($cat);
+//print_r($cur_category);
+//$categories = get_the_category($cat);
+
+//print_r($cat);
+//print_r($cats);
+
+
+
+
+if(!empty($cats)){
+    $cat_str = '';
+    foreach($cats as $the_cat){
+        $posts = get_posts(array(
+            'category' => $the_cat->cat_ID,
+            'orderby' => 'date',
+            'order' => 'ASC',
+        ));
+
+        if(!empty($posts)){
+            $cat_str .= '<li class="dd-item" data-id="y12r1210" ismenu="1">';
+            $cat_str .= '<div class="dd-content folder-open">';
+            $cat_str .= '<h2 class="menu-title">';
+            $cat_str .= '<span class="leftth" title="'.$the_cat->name.'">'.$the_cat->name.'</span>';
+            $cat_str .= '</h2></div>';
+            $cat_str .= '<ol class="dd-list" style="margin: 0;padding: 0;">';
+
+            foreach($posts as $post){
+                $cat_str .= '<li class="dd-item" data-id="html-html_examples">';
+                $cat_str .= '<div class="dd-content ">';
+                $cat_str .= '<a href="'.get_permalink($post->ID).'" title="'.$post->post_title.'">'.$post->post_title.'</a>';
+                $cat_str .= '</div>';
+                $cat_str .= '</li>';
+            }
+            $cat_str .= '</ol></li>';
+        }
     }
 }
+
 ?>
 <div id="wrapper" class="project-wrapper">
 <div id="navsecond">
@@ -34,266 +72,7 @@ if(is_single()||is_category())
 <div class="sidebar-tree-content">
 <div class="dd" id="nestable_handbook" data-tid="" data-id="handbook">
 <ol class="dd-list" style="margin: 0 6px 10px;padding: 0;">
-<li class="dd-item  " data-id="241bxf21" ismenu="1">
-<div class="dd-content folder-open">
-<h2 class="menu-title"><span class="leftth" title="HTML 教程">
-HTML 教程</span>
-</h2></div>
-<ol class="dd-list" style="margin: 0;padding: 0;">
-<li class="dd-item  " data-id="html-tutorial">
-<div class="dd-content ">
-<a href="/html/html-tutorial.html" title="HTML 教程导读">HTML 教程导读</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-intro">
-<div class="dd-content ">
-<a href="/html/html-intro.html" title="HTML 简介">HTML 简介</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-editors">
-<div class="dd-content ">
-<a href="/html/html-editors.html" title="HTML 编辑器的介绍及推荐">HTML 编辑器</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-basic">
-<div class="dd-content ">
-<a href="/html/html-basic.html" title="HTML 基础">HTML 基础</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-elements">
-<div class="dd-content ">
-<a href="/html/html-elements.html" title="HTML 元素">HTML 元素</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-attributes">
-<div class="dd-content ">
-<a href="/html/html-attributes.html" title="HTML 属性">HTML 属性</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-heading">
-<div class="dd-content ">
-<a href="/html/html-heading.html" title="HTML 标题">HTML 标题</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-paragraphs">
-<div class="dd-content ">
-<a href="/html/html-paragraphs.html" title="HTML 段落">HTML 段落</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-formatting">
-<div class="dd-content ">
-<a href="/html/html-formatting.html" title="HTML 文本格式化">HTML 文本格式化</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-links">
-<div class="dd-content ">
-<a href="/html/html-links.html" title="HTML 链接">HTML 链接</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-head">
-<div class="dd-content ">
-<a href="/html/html-head.html" title="HTML 头部">HTML 头部</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-css">
-<div class="dd-content ">
-<a href="/html/html-css.html" title="HTML CSS百科及常用嵌入方式">HTML CSS</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-images">
-<div class="dd-content ">
-<a href="/html/html-images.html" title="HTML 图像">HTML 图像</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-tables">
-<div class="dd-content ">
-<a href="/html/html-tables.html" title="HTML 表格">HTML 表格</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-lists">
-<div class="dd-content ">
-<a href="/html/html-lists.html" title="HTML 列表">HTML 列表</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-blocks">
-<div class="dd-content ">
-<a href="/html/html-blocks.html" title="HTML 区块">HTML 区块</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-layouts">
-<div class="dd-content ">
-<a href="/html/html-layouts.html" title="HTML 布局">HTML 布局</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-form">
-<div class="dd-content ">
-<a href="/html/html-form.html" title="HTML 表单">HTML 表单</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-iframes">
-<div class="dd-content ">
-<a href="/html/html-iframes.html" title="HTML 框架">HTML 框架</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-colors">
-<div class="dd-content ">
-<a href="/html/html-colors.html" title="HTML 颜色">HTML 颜色</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-colornames">
-<div class="dd-content ">
-<a href="/html/html-colornames.html" title="HTML 颜色名">HTML 颜色名</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-colorvalues">
-<div class="dd-content ">
-<a href="/html/html-colorvalues.html" title="HTML 颜色值">HTML 颜色值</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-scripts">
-<div class="dd-content ">
-<a href="/html/html-scripts.html" title="HTML 脚本">HTML 脚本</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-entities">
-<div class="dd-content ">
-<a href="/html/html-entities.html" title="HTML 字符实体">HTML 字符实体</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-url">
-<div class="dd-content ">
-<a href="/html/html-url.html" title="HTML URL">HTML URL</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-quicklist">
-<div class="dd-content ">
-<a href="/html/html-quicklist.html" title="HTML 速查列表">HTML 速查列表</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-summary">
-<div class="dd-content ">
-<a href="/html/html-summary.html" title="HTML 总结">HTML 总结</a>
-</div>
-</li> 
- 
-</ol></li>  
-<li class="dd-item  " data-id="9odg1ptd" ismenu="1">
-<div class="dd-content folder-open">
-<h2 class="menu-title"><span class="leftth" title="HTML XHTML">
-HTML XHTML</span>
-</h2></div>
-<ol class="dd-list" style="margin: 0;padding: 0;">
-<li class="dd-item  " data-id="html-xhtml">
-<div class="dd-content ">
-<a href="/html/html-xhtml.html" title="XHTML 简介">XHTML 简介</a>
-</div>
-</li> 
- 
-</ol></li>  
-<li class="dd-item  " data-id="1pdjxf21" ismenu="1">
-<div class="dd-content folder-open">
-<h2 class="menu-title"><span class="leftth" title="HTML 媒体">
-HTML 媒体</span>
-</h2></div>
-<ol class="dd-list" style="margin: 0;padding: 0;">
-<li class="dd-item  " data-id="html-media">
-<div class="dd-content ">
-<a href="/html/html-media.html" title="HTML 媒体(Media)">HTML 媒体(Media)</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-object">
-<div class="dd-content ">
-<a href="/html/html-object.html" title="HTML 插件">HTML 插件</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-sounds">
-<div class="dd-content ">
-<a href="/html/html-sounds.html" title="HTML 音频(Audio)">HTML 音频(Audio)</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-videos">
-<div class="dd-content ">
-<a href="/html/html-videos.html" title="HTML 视频(Videos)播放">HTML 视频(Videos)播放</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-examples">
-<div class="dd-content ">
-<a href="/html/html-examples.html" title="HTML 实例">HTML 实例</a>
-</div>
-</li> 
- 
-</ol></li>  
-<li class="dd-item  " data-id="y12r1210" ismenu="1">
-<div class="dd-content folder-open">
-<h2 class="menu-title"><span class="leftth" title="实例/测验">
-实例/测验</span>
-</h2></div>
-<ol class="dd-list" style="margin: 0;padding: 0;">
-<li class="dd-item  " data-id="html-html_examples">
-<div class="dd-content ">
-<a href="/html/html-html_examples.html" title="HTML 实例">HTML 实例</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-html_quiz">
-<div class="dd-content ">
-<a href="/html/html-html_quiz.html" title="HTML 测验">HTML 测验</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-codecamp">
-<div class="dd-content ">
-<a href="/html/html-codecamp.html" title="HTML 编程实战闯关">HTML 编程实战闯关</a>
-</div>
-</li> 
- 
-</ol></li>  
-<li class="dd-item  " data-id="4flh1s7s" ismenu="1">
-<div class="dd-content folder-open">
-<h2 class="menu-title"><span class="leftth" title="拓展阅读">
-拓展阅读</span>
-</h2></div>
-<ol class="dd-list" style="margin: 0;padding: 0;">
-<li class="dd-item  " data-id="html-space">
-<div class="dd-content ">
-<a href="/html/html-space.html" title="HTML中如何键入空格">HTML中如何键入空格</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-code">
-<div class="dd-content ">
-<a href="/html/html-code.html" title="程序员必须知道的HTML常用代码有哪些？">HTML常用代码</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-Label">
-<div class="dd-content ">
-<a href="/html/html-Label.html" title="全方位详解HTML常用标签（含视频教程）">HTML常用标签</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-template">
-<div class="dd-content ">
-<a href="/html/html-template.html" title="精选多个程序员都想要的免费HTML模板下载">HTML模板下载</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-textbox">
-<div class="dd-content ">
-<a href="/html/html-textbox.html" title="HTML文本框参考样式及常见操作技巧大全">HTML文本框样式</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-scrollbar">
-<div class="dd-content ">
-<a href="/html/html-scrollbar.html" title="HTML滚动条样式代码及使用技巧">HTML滚动条样式</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-copyright">
-<div class="dd-content ">
-<a href="/html/html-copyright.html" title="HTML版权符号写法及美化">HTML版权符号写法</a>
-</div>
-</li> 
-<li class="dd-item  " data-id="html-cui11xk2">
-<div class="dd-content ">
-<a href="/html/html-cui11xk2.html" title="HTML元素嵌套嵌套错误可能引起的问题">HTML元素嵌套问题</a>
-</div>
-</li> 
- 
-</ol></li>  
+    <?php echo $cat_str; ?>
 </ol>
 </div>  
 </div>
@@ -305,18 +84,17 @@ HTML 媒体</span>
 <div id="pcover">
 <div class="portlet">
 <div class="coverimg">
-<a href="//www.w3cschool.cn/html" title="HTML教程">                
-<img class="pimgcover" src="/attachments/cover/cover_html.png" width="150" height="150" alt="HTML教程">
+<a href="/<?php echo $cur_category->slug;?>" title="<?php echo $cur_category->name;?>教程">
+
+<img class="pimgcover" src="<?php echo $cur_category->meta['image'];?>" width="150" height="150" alt="<?php echo $cur_category->name;?>教程">
 </a>
 </div>
 <div class="coverinfo">
-<h1><a href="//www.w3cschool.cn/html" title="HTML教程">HTML教程</a></h1>
+<h1><a href="/<?php echo $cur_category->slug;?>" title="<?php echo $cur_category->name;?>教程"><?php echo $cur_category->name;?>教程</a></h1>
 <div class="coverinfo-desc">
 <h2>手册简介:</h2>
-<p>HTML 指超文本标签语言。
-HTML 是通向 WEB 技术世界的钥匙。
-在 W3CSchool 的 HTML 教程中，您将学习如何使用 HTML 来创建站点。
-HTML 非常容易学习！你会喜欢它的！</p>
+<p><?php the_category_top_text(); ?></p>
+
 <div class="content-group">
 <span id="content-head-viewcount"><i class="viewcount-icon"></i>阅读 (157057)</span>
 <a id="hbstar" href="javascript:;" onclick="isProjectStar()" data-type="star"><i class="star-icon"></i><span>收藏</span></a>
@@ -332,8 +110,7 @@ HTML 非常容易学习！你会喜欢它的！</p>
 </div>
 <div class="project-desc content-intro">
 <h3><i class="icon-reorder"></i>手册说明:</h3>
-<div>
-<p>HTML是现在世界通用的超文本标记语言，通过它，可以实现图片、链接、音乐以及程序等等多种元素。现如今，HTML已经是程序员必须掌握的一项基本功。&nbsp;</p><p style="text-align: center; "><img src="http://www.eeedong.com/attachments/image/20161021/1477036444719391.jpg" alt="HTML"></p><h2>HTML发展史</h2><p>HTML没有1.0，因为关于它的初版存在争议，1995年HTML 2.0面试，1997年由国际官方组织W3C推出了HTML 3.2以及HTML 4.0标准，后面W3C(万维网联盟)也渐渐变成Web技术领域的权威，经过漫长的演变，2014年，HTML 5标准最终面世。</p><p>HTML 2.0——1995年11月，RFC 1866发布</p><p>HTML 3.2——1997年1月14日，W3C发布推荐标准</p><p>HTML 4.0——1997年12月18日，W3C<span style="line-height: 1.7;">发布</span><span style="line-height: 1.7;">推荐标准</span></p><p>HTML 4.01——1999年12月24日，W3C<span style="line-height: 1.7;">发布</span><span style="line-height: 1.7;">推荐标准</span></p><p>HTML 5——2014年10月28日，W3C<span style="line-height: 1.7;">发布</span><span style="line-height: 1.7;">推荐标准</span></p><h2>HTML结构</h2><p>HTML的结构一般包括&lt;head&gt;标签和&lt;body&gt;标签，&lt;head&gt;&lt;/head&gt;这2个标记符分别表示网页的头部和正文。头部中可包含页面的标题、关键词、描述说明等内容，它本身不作为内容来显示，但影响网页显示的效果。&lt;body&gt;&lt;/body&gt;当中是网页实际显示的内容，正文标记符又被称为实体标记。页面当中通常包含有很多指向其他相关页面或其他节点的指针，通过点击，可以很方便地获取新的网页，这是HTML获得广泛推广运用最重要的原因之一，而由这些相互之间存在关联的页面组成的有机集合便是网站。</p><p>究竟HTML为什么会被普及?这就要归功于互联网的高速发展，对于编程语言的需求直线上升。而HTML5具有超集方式的简易性、运用广泛的可拓展性、灵活应变的平台适应性以及简单的通用性。凭借着这些特性，HTML越来越受到人们的喜爱。</p><h2>HTML5编辑规范</h2><p>1、文件拓展名默认使用htm，便于操作系统或者程序辨认文件，而图片则基本上存为gif或jpg</p><p>2、浏览器默认忽视回车符，不过为了方便阅览，人们还是会习惯地在写完一段代码后进行回车</p><p>3、标记符号用尖括号括起来，带斜杠的元素表示该标记说明结束，大多数标记符必须成对使用，用以说明起始和结束。</p><p>4、必须使用半角而不是全角字符</p><p>5、HTML注释&lt;!--注释内容--&gt;的内容不给予显示。</p><h2>除了这本手册，你还可以参考</h2><p><a href="http://www.w3cschool.cn/wzjszn/web-validate.html" target="_blank">《HTML验证》</a></p><p><a href="http://www.w3cschool.cn/html/html-html_examples.html" target="_blank">《HTML实例》</a></p><p><a href="http://www.w3cschool.cn/html/html-html_quiz.html" target="_blank">《HTML测验》</a></p><p><a href="http://www.w3cschool.cn/codecamp/list?ccid=2" target="_blank">《HTML实战》</a></p><p><a href="http://www.w3cschool.cn/htmltags/index.html" target="_blank">《HTML参考手册》</a></p><h2>开始学习HTML</h2><p>接下来，你可以打开这本教程，先了解html的基本概念，然后一个一个地掌握<a href="http://www.w3cschool.cn/htmltags/tag-a.html" target="_blank">HTML标签</a>、<a href="http://www.w3cschool.cn/webdevelopment/rezj1jsl.html" target="_blank">HTML语法</a>、<a href="http://www.w3cschool.cn/htmltags/tag-comment.html" target="_blank">HTML注释</a>、<a href="http://www.w3cschool.cn/htmltags/tag-frame.html" target="_blank">HTML框架</a>的用法，并且参考借鉴一些优秀的网站，通过浏览器的“查看源代码”功能来了解别人写的HTML代码结构。</p><p>HTML对于系统环境配置要求一点也不高，基本上，你只需要有一台电脑就够了。</p><p><br></p></div>
+<div><?php the_category_bottom_text(); ?></div>
 </div>
 <div class="project-desc">
 <h3><i class="icon-reorder"></i>更新记录：</h3>
