@@ -618,9 +618,3 @@ function get_category_root_id($cat)
 	}
 	return $this_category->term_id; // 返回根分类的id号
 }
-function needRemoveP() {
-	if ( get_post_type() == 'post'){ // 如果文章类型为 post
-		remove_filter('the_content', 'wpautop');
-	}
-}
-add_action ('loop_start', 'needRemoveP');

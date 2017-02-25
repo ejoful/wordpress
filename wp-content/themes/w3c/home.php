@@ -46,7 +46,7 @@
 </div>
 <div class="sig-box" >
 <a href="/register?refer=/">注册</a><!-- href="/register?refer=/" --> | 
-<a href="/login?refer=/">登录</a>
+<a href="/login">登录</a>
 </div>
 </div>
 </div>
